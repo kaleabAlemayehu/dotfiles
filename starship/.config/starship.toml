@@ -1,0 +1,110 @@
+add_newline = false
+# A minimal left prompt
+format = """$directory$character"""
+palette = "catppuccin_mocha"
+# Move the rest of the prompt to the right
+right_format = """$all"""
+
+[git_branch]
+format =  '[$symbol$branch(:$remote_branch)]($style)'
+
+[aws]
+format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
+disabled = false
+style = 'bold blue'
+symbol = " p"
+
+[golang]
+format = '[$symbol](bold cyan)'
+symbol= ' '
+disabled = false
+
+[nodejs]
+format = 'via [$symbol $version](bold green) '
+symbol =' '
+detect_extensions = ['js', 'mjs', 'cjs', 'ts', 'mts', 'cts']
+detect_files = ['package.json', '.node-version', '.nvmrc']
+not_capable_style = 'bold red'
+disabled = false
+
+[lua]
+format = 'via [$symbol($version )]($style)'
+version_format = 'v${raw}'
+#X symbol = '🌙 🌕'	
+symbol = '🌕 '	
+detect_extensions =['lua']
+detect_files = ['.lua-version']
+detect_folders = ['lua']
+style = 'bold blue'
+lua_binary = 'lua'
+disabled = false
+
+
+[c]
+# Customize the format to display the name and version of the compiler.
+format = 'via [$symbol $version]($style)'
+# Change the version format to show major and minor only.
+version_format = 'v${major}.${minor}'
+# Set a custom symbol for the module.
+symbol = '🅒 '
+# Extend detection to include additional file types like .cpp and .hxx.
+detect_extensions = ['c', 'h', 'cpp', 'hxx']
+# Detect files named Makefile or compile_commands.json as triggers.
+# detect_files = ['Makefile', 'compile_commands.json']
+# Specify additional folders to detect.
+#detect_folders = ['src', 'include']
+# Add a custom command for a specific compiler.
+commands = [
+    ['gcc', '--version'],
+    ['clang', '--version'],
+    ['mycc', '--version'] # Example custom compiler
+]
+# Set the style to bold blue text.
+style = 'bold blue'
+# Enable the module (in case it was disabled).
+disabled = false
+
+[kubernetes]
+symbol = '☸ '
+disabled = true
+detect_files = ['Dockerfile', 'docker-compose.yaml', 'docker-compose.yaml']
+format = '[$symbol$context( \($namespace\))]($style) '
+contexts = [
+  { context_pattern = "arn:aws:eks:us-west-2:577926974532:cluster/zd-pvc-omer", style = "green", context_alias = "omerxx", symbol = " " },
+]
+
+[docker_context]
+format = 'via [$symbol$context]($style) '
+symbol = '🐳 '
+only_with_files= true
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+style = 'blue bold'
+disabled = false
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
