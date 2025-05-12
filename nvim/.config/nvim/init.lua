@@ -37,6 +37,7 @@ require('lazy').setup({
   require 'plugins.smearcursor',
   require 'plugins.gitsigns',
   require 'plugins.lazygit',
+  require 'plugins.flash',
   require 'theme.material',
 }, {
   ui = {
