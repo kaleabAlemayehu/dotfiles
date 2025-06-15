@@ -23,16 +23,19 @@ alias lg="lazygit"
 #open alias
 alias open="xdg-open"
 
+#superfile alias
+alias spf="superfile"
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	alias ls='ls --color=auto'
-	alias dir='dir --color=auto'
-	alias vdir='vdir --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
 
-	alias grep='grep --color=auto'
-	alias fgrep='fgrep --color=auto'
-	alias egrep='egrep --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 fi
 
 # some more ls aliases
@@ -46,14 +49,14 @@ export PATH="$HOME/go/bin:$PATH"
 # ssh agent
 # Only start agent if it's not already running
 if [ -z "$SSH_AUTH_SOCK" ]; then
-	eval "$(ssh-agent -s)"
-	ssh-add ~/.ssh/github_id_ed25519
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/github_id_ed25519
 fi
 
 # pnpm
 export PNPM_HOME="/home/neo/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
