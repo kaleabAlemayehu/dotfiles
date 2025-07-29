@@ -221,3 +221,14 @@ exec --no-startup-id trayer --edge top --align right --SetDockType true --SetPar
 exec --no-startup-id /etc/profiles/per-user/neo/libexec/polkit-gnome-authentication-agent-1
 
 exec dbus-launch --sh-syntax --exit-with-session i3
+
+
+# adding power menu script exec
+bindsym $mod+Shift+p exec ~/.config/i3/power-menu.sh
+
+exec copyq
+
+# adding pre-brightness
+exec --no-startup-id brightnessctl --device=intel_backlight set 1%
+
+
