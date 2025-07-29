@@ -60,3 +60,7 @@ case ":$PATH:" in
 *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+#
+# brightness percent
+#
+alias br='brightnessctl --device=intel_backlight set'
