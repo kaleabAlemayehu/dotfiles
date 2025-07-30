@@ -1,17 +1,43 @@
 return {
-  "github/copilot.vim",
-  config = function()
-    -- Enable verbose logging
-    vim.g.copilot_log_file = "/tmp/copilot.log"  -- Add this (Linux/macOS)
-    vim.g.copilot_log_level = "debug"  -- Add this
-    -- Optional: disable default tab mapping if you use other completion
-    vim.g.copilot_no_tab_map = true
-    vim.g.copilot_assume_mapped = true
-    -- Custom keymaps
-    vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
-      expr = true,
-      replace_keycodes = false
-    })
-    vim.keymap.set('i', '<C-L>', '<Plug>(copilot-accept-word)')
-  end
+	  "zbirenbaum/copilot.lua",
+	  cmd = "Copilot",
+	  event = "InsertEnter",
+	  config = function()
+	    require("copilot").setup({
+	      panel = {
+	        enabled = true,
+	        auto_refresh = false,
+	        keymap = {
+	          jump_prev = "[[",
+	          jump_next = "]]",
+	          accept = "<CR>",
+	          refresh = "gr",
+	          open = "<M-CR>"
+	        },
+	      },
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<C-J>",      -- Your preferred key
+            accept_word = "<C-L>",
+            accept_line = "<C-K>",
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+        },
+        },
+	      filetypes = {
+	        help = false,
+	        gitcommit = false,
+	        gitrebase = false,
+	        hgcommit = false,
+	        svn = false,
+	        cvs = false,
+	        ["."] = false,
+	      },
+	      copilot_node_command = 'node',
+	    })
+	  end,
 }
