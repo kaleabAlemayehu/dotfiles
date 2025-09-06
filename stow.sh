@@ -1,10 +1,14 @@
-#/bin/bash
-stow --no-folding -v -t ~ i3
-stow --no-folding -v -t ~ bash
-stow --no-folding -v -t ~ ghostty
-stow --no-folding -v -t ~ nvim
-stow --no-folding -v -t ~ picom
-stow --no-folding -v -t ~ redshift
-stow --no-folding -v -t ~ starship
-stow --no-folding -v -t ~ tmux
-# add new directories
+#!/usr/bin/env bash
+
+# Stow all directories in the current directory
+for dir in */; do
+    # Remove trailing slash
+    dir=${dir%*/}
+    # Skip .git directory
+    if [ "$dir" != ".git" ]; then
+        echo "Stowing $dir"
+        stow --no-folding -v -t ~ "$dir"
+    fi
+done
+
+echo "All directories have been stowed."

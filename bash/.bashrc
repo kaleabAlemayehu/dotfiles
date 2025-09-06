@@ -19,6 +19,7 @@ alias glg="git log"
 alias gad="git add ."
 alias gcl="git clone"
 alias lg="lazygit"
+alias zd="lazydocker"
 #
 #open alias
 alias open="xdg-open"
@@ -64,3 +65,4 @@ esac
 # brightness percent
 #
 alias br='brightnessctl --device=intel_backlight set'
+set -o vi

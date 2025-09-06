@@ -38,7 +38,11 @@ require('lazy').setup({
   require 'plugins.gitsigns',
   require 'plugins.lazygit',
   require 'plugins.flash',
-  require 'plugins.copilot',
+  -- require 'plugins.copilot',
+  require 'plugins.windsurf',
+  require 'plugins.blame',
+  require 'plugins.supermaven',
+  -- require 'plugins.autosession',
   require 'theme.material',
 }, {
   ui = {
