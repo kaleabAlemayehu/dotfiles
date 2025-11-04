@@ -49,10 +49,10 @@ export PATH="$HOME/go/bin:$PATH"
 
 # ssh agent
 # Only start agent if it's not already running
-if [ -z "$SSH_AUTH_SOCK" ]; then
-  eval "$(ssh-agent -s)"
-  ssh-add ~/.ssh/github_id_ed25519
-fi
+# if [ -z "$SSH_AUTH_SOCK" ]; then
+#   eval "$(ssh-agent -s)"
+#   ssh-add ~/.ssh/github_id_ed25519
+# fi
 
 # pnpm
 export PNPM_HOME="/home/neo/.local/share/pnpm"

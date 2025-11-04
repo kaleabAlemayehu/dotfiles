@@ -40,7 +40,7 @@ selection-background = 00FF00
 
 window-decoration = false
 gtk-titlebar = false
-gtk-adwaita = false
+# gtk-adwaita = false
 #
 # # Empty values are used to reset config keys to default.
 # key =
