@@ -61,7 +61,9 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+space exec rofi -show drun -theme gruvbox-dark
+bindsym $mod+space exec vicinae open
+# bindsym $mod+space exec rofi -show drun -theme gruvbox-dark
+bindsym $mod+p exec rofi -show power-menu -modi power-menu:rofi-power-menu -theme gruvbox-dark
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -202,7 +204,7 @@ bar {
 # gaps outer 1
 
 # adding wallpaper
-exec --no-startup-id feh --bg-scale /home/neo/Pictures/neo.jpeg
+exec --no-startup-id feh --bg-scale ~/.config/i3/bg/neo.jpeg
 
 client.focused          #4c7899 #285577 #ffffff #2e9ef4 #285577
 client.unfocused        #333333 #222222 #888888 #292d2e #222222
@@ -212,6 +214,8 @@ client.urgent           #2f343a #900000 #ffffff #900000 #900000
 new_window pixel 2
 
 exec --no-startup-id picom
+# starting vicinae server deamon
+exec vicinae server& 
 
 # hibernate
 bindsym $mod+Home exec systemctl hibernate
@@ -231,4 +235,6 @@ exec copyq
 # adding pre-brightness
 exec --no-startup-id brightnessctl --device=intel_backlight set 1%
 
+# adding power warn
+exec_always --no-startup-id ~/.config/i3/battery_warn.sh
 

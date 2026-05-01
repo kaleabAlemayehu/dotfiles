@@ -26,6 +26,7 @@ return {
       end,
     },
   },
+
   config = function()
     -- If you want icons for diagnostic errors, you'll need to define them somewhere:
     vim.fn.sign_define('DiagnosticSignError', { text = ' ', texthl = 'DiagnosticSignError' })
@@ -188,6 +189,19 @@ return {
       },
       nesting_rules = {},
       filesystem = {
+      window = {
+      mappings = {
+        ["<leader>p"] = "image_wezterm", -- " or another map
+      },
+      },
+      commands = {
+      image_wezterm = function(state)
+        local node = state.tree:get_node()
+        if node.type == "file" then
+          require("image_preview").PreviewImage(node.path)
+        end
+      end,
+       },
         filtered_items = {
           visible = false, -- when true, they will just be displayed differently than normal items
           hide_dotfiles = false,

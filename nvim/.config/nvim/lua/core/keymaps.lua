@@ -52,3 +52,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 		vim.highlight.on_yank()
 	end,
 })
+-- try to fix buffer fault when nvim is opened
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    if vim.fn.argc() == 0 then
+      require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+    end
+  end,
+})
+
+

@@ -38,11 +38,12 @@ require('lazy').setup({
   require 'plugins.gitsigns',
   require 'plugins.lazygit',
   require 'plugins.flash',
+  require 'plugins.markview',
   -- require 'plugins.copilot',
   -- require 'plugins.windsurf',
   require 'plugins.blame',
   -- require 'plugins.supermaven',
-  -- require 'plugins.autosession',
+  require 'plugins.autosession',
   require 'theme.material',
 }, {
   ui = {
@@ -65,6 +66,19 @@ require('lazy').setup({
     },
   },
 })
+
+--
+--
+--
+-- Toggle floating file
+vim.keymap.set('n', '<leader>f', function()
+  require('plugins.floatingfile').toggle()
+end, { desc = 'Toggle Floating File' })
+
+-- Clear buffer & pick new file
+vim.keymap.set('n', '<leader>F', function()
+  require('plugins.floatingfile').clear_and_prompt()
+end, { desc = 'Reset Floating File' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
