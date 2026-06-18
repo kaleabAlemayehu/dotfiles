@@ -1,3 +1,6 @@
+-- DEPRECATED: This plugin conflicts with conform.lua (autoformat.lua).
+-- Conform.nvim handles all formatting. This file is kept for reference only.
+-- It is NOT loaded in init.lua (commented out). Do NOT re-enable.
 return {
   'nvimtools/none-ls.nvim',
   dependencies = {

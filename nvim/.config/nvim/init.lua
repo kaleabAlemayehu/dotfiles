@@ -38,6 +38,7 @@ require('lazy').setup({
   require 'plugins.gitsigns',
   require 'plugins.lazygit',
   require 'plugins.flash',
+  require 'plugins.opencode',
   require 'plugins.markview',
   -- require 'plugins.copilot',
   -- require 'plugins.windsurf',

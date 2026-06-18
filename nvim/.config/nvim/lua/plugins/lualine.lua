@@ -80,7 +80,12 @@ return {
           }, -- Show filetype if window width > 100
         },
         lualine_y = { 'location' }, -- Displays the current cursor location
-        lualine_z = { 'progress' }, -- Displays the progress through the file
+        lualine_z = {
+          {
+            require('opencode').statusline,
+          },
+          'progress',
+        },
       },
       inactive_sections = {
         -- Sections for inactive windows

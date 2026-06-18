@@ -25,10 +25,10 @@ local function prompt_for_file()
   buf_id = vim.fn.bufadd(filepath)
   vim.fn.bufload(buf_id)
 
-  -- ✅ IMPORTANT: prevent wipe on close
-  vim.api.nvim_buf_set_option(buf_id, "bufhidden", "hide")
-  vim.api.nvim_buf_set_option(buf_id, "swapfile", false)
-  vim.api.nvim_buf_set_option(buf_id, "modifiable", true)
+  -- ✅ prevent wipe on close
+  vim.bo[buf_id].bufhidden = "hide"
+  vim.bo[buf_id].swapfile = false
+  vim.bo[buf_id].modifiable = true
 
   return buf_id
 end

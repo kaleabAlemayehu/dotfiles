@@ -1,6 +1,9 @@
 return {
   'folke/which-key.nvim',
   event = 'VimEnter',
+  keys = {
+    { '?', function() require('which-key').show({ global = true }) end, desc = 'Which Key' },
+  },
   opts = {
     icons = {
       mappings = vim.g.have_nerd_font,
@@ -43,6 +46,16 @@ return {
       { '<leader>w', group = '[W]orkspace' },
       { '<leader>t', group = '[T]oggle' },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      { '<leader>b', group = '[B]uffer' },
+      { '<leader>D', group = '[D]ebug' },
+      { '<leader>g', group = '[G]it' },
+      { '<leader>f', group = '[F]ormat / [F]loat file', mode = { 'n', 'x' } },
+      { '<leader>n', group = '[N]eotree' },
+      { '<leader>o', group = '[O]penCode', mode = { 'n', 'x' } },
+      { '<leader>B', group = 'De[B]ug', mode = { 'n', 'x' } },
+      { 'go', group = 'Send range to OpenCode', mode = { 'n', 'x' } },
+      { 'tt', group = 'Toggle NeoTree', mode = 'n' },
+      { '<leader>p', group = '[P]review image' },
     },
   },
 }
