@@ -198,11 +198,67 @@ return {
       yamlls = {},
       vue_ls = {},
       ts_ls = {},
+      kotlin_language_server = {
+        settings = {
+          kotlin = {
+            compiler = {
+              jvmTarget = '17',
+            },
+            lints = {
+              unused = true,
+            },
+          },
+        },
+      },
+      nil_ls = {
+        settings = {
+          ['nil'] = {
+            formattingCommand = { 'nixfmt' },
+            nix = {
+              flake = {
+                autoArchive = true,
+              },
+            },
+          },
+        },
+      },
+      elixirls = {
+        cmd = { 'elixir-ls' },
+        settings = {
+          elixirLS = {
+            dialyzerEnabled = true,
+            fetchDeps = false,
+            suggestSpecs = true,
+          },
+        },
+      },
       lua_ls = {
         settings = {
           Lua = {
             completion = {
               callSnippet = 'Replace',
+            },
+          },
+        },
+      },
+      texlab = {
+        settings = {
+          texlab = {
+            build = {
+              onSave = true,
+              forwardSearchAfter = true,
+            },
+            forwardSearch = {
+              executable = 'zathura',
+              args = {
+                '--synctex-forward',
+                '%l:1:%f',
+                '%p',
+              },
+            },
+            chktex = {
+              onOpenAndSave = false,
+              onEdit = false,
             },
           },
         },
@@ -224,6 +280,8 @@ return {
       'stylua',
       'gofumpt',
       'goimports',
+      'ktlint',
+      'elixir-ls',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

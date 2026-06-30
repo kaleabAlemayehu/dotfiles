@@ -65,6 +65,7 @@ return {
         'delve',
         'codelldb',
         'js',
+        'kotlin',
       },
     }
 
@@ -127,5 +128,23 @@ return {
     }
 
     dap.configurations.cpp = dap.configurations.c
+
+    dap.configurations.kotlin = {
+      {
+        type = 'kotlin',
+        request = 'launch',
+        name = 'Launch Kotlin',
+        projectMainClass = function()
+          return vim.fn.input('Project main class: ', '', 'file')
+        end,
+        projectName = function()
+          return vim.fn.input('Project name: ', vim.fn.fnamemodify(vim.fn.getcwd(), ':t'), 'file')
+        end,
+        javaExec = function()
+          return vim.fn.input('Java executable path: ', '/usr/bin/java', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+      },
+    }
   end,
 }

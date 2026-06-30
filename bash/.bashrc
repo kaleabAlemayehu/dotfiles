@@ -63,3 +63,5 @@ esac
 #
 alias br='brightnessctl --device=intel_backlight set'
 set -o vi
+
+export PATH="$HOME/.cargo/bin:$PATH"

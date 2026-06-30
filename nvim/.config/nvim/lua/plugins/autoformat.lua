@@ -18,7 +18,7 @@ return { -- Autoformat
       -- Disable "format_on_save lsp_fallback" for languages that don't
       -- have a well standardized coding style. You can add additional
       -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true, cpp = true }
+      local disable_filetypes = { c = true, cpp = true, tex = true, latex = true }
       local lsp_format_opt
       if disable_filetypes[vim.bo[bufnr].filetype] then
         lsp_format_opt = 'never'
@@ -28,7 +28,6 @@ return { -- Autoformat
       return {
         timeout_ms = 500,
         lsp_format = lsp_format_opt,
-        lsp_fallback = true,
       }
     end,
     formatters_by_ft = {
@@ -49,6 +48,10 @@ return { -- Autoformat
       markdown = { 'prettierd', 'prettier', stop_after_first = true },
       sh = { 'shfmt' },
       bash = { 'shfmt' },
+      kotlin = { 'ktlint' },
+      nix = { 'nixfmt' },
+      elixir = { 'mix format' },
+
     },
   },
 }

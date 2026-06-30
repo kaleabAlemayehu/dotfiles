@@ -3,7 +3,7 @@ return {
   -- opts = {cursor_color = "#00FF00",},
   opts = {
     cursor_color = '#ff4000',
-    particles_enabled = true,
+    particles_enabled = false,
     stiffness = 0.5,
     trailing_stiffness = 0.2,
     trailing_exponent = 5,
